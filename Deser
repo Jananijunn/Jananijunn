@@ -1,0 +1,63 @@
+import java.io.*;
+
+class Product implements Serializable {
+    private int id;
+    private String name;
+    private String category;
+    private double price;
+
+    
+    public Product(int id, String name, String category, double price) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.price = price;
+    }
+
+    
+
+  
+    public static void serializeProduct(Product product, String filename) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream(filename);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(product);
+            out.close();
+            fileOut.close();
+            System.out.println("Serialized data is saved in " + filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
+    public static Product deserializeProduct(String filename) {
+        Product product = null;
+        try {
+            FileInputStream fileIn = new FileInputStream(filename);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            product = (Product) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
+
+    
+}
+
+public class Main {
+    public static void main(String[] args) {
+      
+        Product product = new Product(1, "Laptop", "Electronics", 999.99);
+
+        
+        Product.serializeProduct(product, "product.ser");
+
+        
+        Product deserializedProduct = Product.deserializeProduct("product.ser");
+        System.out.println("Deserialized Product: " + deserializedProduct);
+    }
+}
