@@ -1,0 +1,36 @@
+class Parent {class Parent {
+  
+    public void display() {
+        System.out.println("Parent's display method");
+    }
+
+    public void display(String message) {
+        System.out.println("Parent's display method with message: " + message);
+    }
+
+    
+    public void show() {
+        System.out.println("Parent's show method");
+    }
+}
+
+class Child extends Parent {
+    
+    @Override
+    public void show() {
+        System.out.println("Child's overridden show method");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Parent parent = new Parent();
+        parent.display(); 
+        parent.display("Hello"); 
+
+        Child child = new Child();
+        child.display(); 
+        child.display("Hi"); 
+        child.show(); 
+    }
+}
