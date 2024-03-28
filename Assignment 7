@@ -1,0 +1,25 @@
+question 1 import java.util.Scanner;
+
+public class EmpBonus {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the current year:");
+        int currentYear = scanner.nextInt();
+
+        System.out.println("Enter the year the employee joined the organization:");
+        int joinYear = scanner.nextInt();
+
+        int yearService = currentYear - joinYear;
+
+        if (yearService > 5) {
+            System.out.println("Congrats  You will get a bonus of Rs. 5000/-");
+        } else if (yearService >= 3) {
+            System.out.println("Congrats  You will get a bonus of Rs. 3000/-");
+        } else {
+            System.out.println("Sorry, you are not eligible for a bonus .");
+        }
+
+        scanner.close();
+    }
+}
