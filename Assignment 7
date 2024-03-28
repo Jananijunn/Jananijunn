@@ -23,3 +23,48 @@ public class EmpBonus {
         scanner.close();
     }
 }
+question 2
+def calfine(days_late):
+    if dayslate <= 7:
+        fine = dayslate * 0.50
+    elif dayslate <= 14:
+        fine = 7 * 0.50 + (dayslate - 7) * 1
+    elif dayslate <= 21:
+        fine = 7 * 0.50 + 7 * 1 + (dayslate - 14) * 5
+    else:
+        return "membership has been canceled."
+    return fine
+
+dayslate = int(input("Enter the number of days the member is late to return the book: "))
+fine = calfine(dayslate)
+print("Fine: Rs.", fine)
+
+
+question 3
+import java.util.Scanner;
+
+public class VowelChe {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter string: ");
+        String input = scanner.nextLine();
+        
+        int vowelCou = 0;
+        boolean isVowPresent = false;
+        
+        for (int i = 0; i < input.length(); i++) {
+            char ch = Character.toLowerCase(input.charAt(i));
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                isVowPresent = true;
+                vowelCou++;
+            }
+        }
+        
+        if (isVowPresent) {
+            System.out.println("Vowels present in the string.");
+            System.out.println("Total no  of vowels: " + vowelCount);
+        } else {
+            System.out.println("No vowels present in the string.");
+        }
+    }
+}
